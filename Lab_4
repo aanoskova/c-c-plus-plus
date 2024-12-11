@@ -1,0 +1,36 @@
+Лабораторная работа №4
+Дана строка символов. Подсчитать наибольшее количество подряд идущих пробелов.
+
+#include <locale.h>
+#include <stdio.h>
+int main() {
+    setlocale(LC_ALL, "Russian");
+        int max_spaces = 0; // Максимальное количество пробелов
+        int current_spaces = 0; // Текущее количество пробелов
+        int c; // Переменная для хранения текущего символа
+
+        printf("Введите строку (нажмите Enter для завершения):\n");
+
+        // Читаем символы один за другим
+        while ((c = getchar()) != '\n') { // Читаем до нажатия Enter
+            if (c == ' ') {
+                current_spaces++; // Увеличиваем счетчик текущих пробелов
+            }
+            else {
+                if (current_spaces > max_spaces) {
+                    max_spaces = current_spaces; // Обновляем максимум, если нужно
+                }
+                current_spaces = 0; // Сбрасываем текущий счетчик
+            }
+        }
+
+        // Проверяем последний сегмент пробелов
+        if (current_spaces > max_spaces) {
+            max_spaces = current_spaces;
+        }
+
+        // Выводим результат
+        printf("Наибольшее количество подряд идущих пробелов: %d\n", max_spaces);
+
+        return 0;
+    }
