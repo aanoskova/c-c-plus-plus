@@ -1,0 +1,56 @@
+#define _CRT_SECURE_NO_WARNINGS         //Есть ли в файле последовательность .:
+#include <stdio.h>  
+#include <locale.h>  
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    FILE* aa = NULL, * bb = NULL;
+    char a[] = "A.txt";
+    char b[] = "B.txt";
+    int f = 0;
+    char pred = '\0';
+    char nin;
+
+    aa = fopen(a, "w");
+    printf("Введите строку: ");
+    while ((nin = getchar()) != '\n') {
+        fputc(nin, aa);
+    }
+    fclose(aa);
+
+
+    aa = fopen(a, "r");
+    if (aa == NULL) {
+        printf("Ошибка: не удалось открыть файл A.txt для чтения.\n");
+        return 1;
+    }
+    while ((nin = fgetc(aa)) != EOF) {
+        if (pred == '.' && nin == ':') {
+            f = 1;
+            break;
+        }
+        pred = nin;
+    }
+    fclose(aa);
+
+    bb = fopen(b, "w");
+
+    if (f == 1) {
+        fprintf(bb, "Да, последовательность .: найдена.\n");
+    }
+    else {
+        fprintf(bb, "Нет, последовательность .: не найдена.\n");
+    }
+    fclose(bb);
+
+
+    bb = fopen(b, "r");
+    printf("Содержимое файла B.txt:\n");
+    while ((nin = fgetc(bb)) != EOF) {
+        putchar(nin);
+    }
+    fclose(bb);
+
+    return 0;
+}
