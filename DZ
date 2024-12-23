@@ -22,3 +22,36 @@
     //узнать что такое break, continue (знать на практике)
 
 
+#include <locale.h>
+#include <stdio.h>
+int main(void) {
+    setlocale(LC_ALL, "Russian");
+    int A[5] = { 5,4,2,3,6 };
+    int i = 0;
+    int max = A[0];// Инициализация максимального значения первым элементом массива
+    int min = A[0];
+    int sum = 0;
+    while (i < 5) {
+
+        if (A[i] < min) {//найти минимум в массиве
+            min = A[i];
+        if (min > 3)
+            continue;
+        }
+        if (A[i] > max) {//найти максимум в массиве
+            max = A[i];
+        }  
+        
+        if (i < 5) {//найти сумму элементов в массиве
+            sum = sum + A[i];
+
+        if (sum > 14) //если сумма превидит 14 остановится
+            break;
+        }
+        i++;
+    }
+    printf("Максимальный элемент массива: %d\n", max);
+    printf("Мин. элемент массива: %d\n", min);
+    printf("Сумма элементов массива: %d\n", sum);
+
+
