@@ -55,3 +55,16 @@ int main(void) {
     printf("Сумма элементов массива: %d\n", sum);
 
 
+//do while 
+int A[5] = { 1,2,3,4,5 };
+int i = 0;
+int max = A[i];
+do {
+    if (A[i] > max) {
+        max = A[i];
+
+    }
+    i++;
+} while (i < 5);
+
+
