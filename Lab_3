@@ -60,3 +60,65 @@ int main(void) {
         return 0;
     }
 
+
+
+#include <locale.h>
+#include <stdio.h>
+
+int main(void) {
+    setlocale(LC_ALL, "Russian");
+
+    int array[100][100];
+    int N, M;
+
+    // Ввод размеров массива
+    printf("Введите количество строк (N): ");
+    scanf("%d", &N);
+    printf("Введите количество столбцов (M): ");
+    scanf("%d", &M);
+
+    // Ввод элементов массива
+    printf("Введите элементы массива:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            scanf("%d", &array[i][j]);
+        }
+    }
+
+    // Сортировка строк, в которых нет положительных элементов
+    for (int i = 0; i < N; i++) {
+        int hasPositive = 0;
+        for (int j = 0; j < M; j++) {
+            if (array[i][j] > 0) {
+                hasPositive = 1;
+                break;
+            }
+        }
+
+        // Если в строке нет положительных элементов, сортируем её
+        if (!hasPositive) {
+            // Сортировка пузырьком
+            for (int k = 0; k < M - 1; k++) {
+                for (int l = 0; l < M - k - 1; l++) {
+                    if (array[i][l] > array[i][l + 1]) {
+                        int temp = array[i][l];
+                        array[i][l] = array[i][l + 1];
+                        array[i][l + 1] = temp;
+                    }
+                }
+            }
+        }
+    }
+
+    // Вывод итогового массива
+    printf("Результирующий массив:\n");
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            printf("%d ", array[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
