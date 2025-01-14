@@ -9,3 +9,22 @@ https://prog-cpp.ru/c-cycles/
 
 массивы
 https://www.geeksforgeeks.org/c-arrays/
+
+
+
+
+
+        // Если в строке нет положительных элементов, сортируем её
+        if (!hasPositive) {
+            for (int k = 0; k < M - 1; k++) {
+                for (int l = 0; l < M - k - 1; l++) {
+                    if (array[i][l] > array[i][l + 1]) {
+                        continue;
+                        int temp = array[i][l];
+                        array[i][l] = array[i][l + 1];
+                        array[i][l + 1] = temp;
+                    }
+                }
+            }
+        }
+    }
