@@ -91,3 +91,29 @@ for (int i = 0; i < 3; i++) {
         }
     }
 
+
+
+
+#include <iostream>
+
+#include <locale.h>
+#include <stdio.h>
+int main(void) {
+    setlocale(LC_ALL, "Russian");
+
+    int a[3][3] = { {1,3,5},{4,-1,2},{8,3,2} };
+    int max = a[0][0];
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (a[i][j]>max) {
+                continue;
+                max = a[i][j];
+                
+            }
+        }
+    }
+    
+    return 0;
+
+}
+
