@@ -6,7 +6,7 @@
 int main() {
     setlocale(LC_ALL, "Russian");
         int max_spaces = 0; // Максимальное количество пробелов
-        int current_spaces = 0; // Текущее количество пробелов
+        int spaces = 0; // Текущее количество пробелов
         int c; // Переменная для хранения текущего символа
 
         printf("Введите строку (нажмите Enter для завершения):\n");
@@ -14,18 +14,18 @@ int main() {
         // Читаем символы один за другим
         while ((c = getchar()) != '\n') { // Читаем до нажатия Enter
             if (c == ' ') {
-                current_spaces++; // Увеличиваем счетчик текущих пробелов
+                spaces++; // Увеличиваем счетчик текущих пробелов
             }
             else {
-                if (current_spaces > max_spaces) {
-                    max_spaces = current_spaces; // Обновляем максимум, если нужно
+                if (spaces > max_spaces) {
+                    max_spaces = spaces; // Обновляем максимум, если нужно
                 }
-                current_spaces = 0; // Сбрасываем текущий счетчик
+                spaces = 0; // Сбрасываем текущий счетчик
             }
         }
 
         // Проверяем последний сегмент пробелов
-        if (current_spaces > max_spaces) {
+        if (spaces > max_spaces) {
             max_spaces = current_spaces;
         }
 
