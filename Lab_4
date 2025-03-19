@@ -26,7 +26,7 @@ int main() {
 
         // Проверяем последний сегмент пробелов
         if (spaces > max_spaces) {
-            max_spaces = current_spaces;
+            max_spaces = spaces;
         }
 
         // Выводим результат
