@@ -145,3 +145,26 @@ int main(void) {
     return 0;
 
 }
+
+
+    char n = getchar();
+    char m = getchar();
+    char k = getchar();
+
+    putchar(a);
+    putchar(b);
+    putchar(c);
+
+
+
+    char a = 'c';
+    char b = 'a';
+    char c = 't';
+
+    putchar(a);
+    putchar(b);
+    putchar(c);
+
+
+
+
